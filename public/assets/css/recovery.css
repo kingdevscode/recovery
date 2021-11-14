@@ -1,0 +1,296 @@
+ /*________________________________________________________________________*/
+/*________________________________________________________________________*/
+      /****     *******   *****    ***  *       *  *******   ****   *    */
+     /*    *   *****    *        *    *  *     *  *****     *    *   *  */
+    /*  *     *        *        *    *    *   *  *         *  *        */
+   /*     *  ********   *****    ***        *   ********  *     *     */
+  /*-----------------------------------------------------------------*/
+ /*---------------------------- 1.0 --------------------------------*/
+/*---------------recovery style rules, by kingdevs---------------*/
+@import url(./recovery_font.css);
+
+:root{
+    --main-color: #4390cb;
+    --secondary-color: #e8f440;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monstserrat;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+
+*.reco-padding{
+    padding: 0 100px;
+}
+
+/* / add a toolbar/ */
+
+.toolbar{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background: transparent;
+    width: 100%;
+    height: 60px;
+    padding: 10px 100px;
+    z-index: 10;
+    transition: .7s;
+}
+.toolbar .toolbar-link{
+    color: rgb(236, 236, 236);
+    text-decoration: none;
+    cursor: pointer;
+}
+.toolbar .toolbar-link:hover{
+    text-decoration: underline;
+}
+.toolbar .tb_logo{
+    height: 30px;
+    opacity: 0;
+    transition: .7s;
+}
+
+.header{
+    background-image: url(../img/ban.jpg) ;
+    background-blend-mode: multiply;
+    background-color: var(--main-color);
+    background-size: cover;
+    color: white;
+    width: 100%;
+}
+
+.header .logo{
+    width: 250px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 100px 0 0 0;
+}
+
+.header .slogan{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.header .search-bar{
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: #222;
+    border: 2px solid white;
+    margin: 40px 0 50px 0;
+    outline: none;
+}
+.header .search-bar::placeholder{
+    color: #777;
+}
+
+.object-ctn .object-ctn-title{
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 40px;
+}
+.object-ctn .object-ctn-title:after{
+    content: "";
+    position: absolute;
+    left: 250px;
+    top: 52%;
+    width: 90%;
+    height: 1px;
+    background-color: #333;
+}
+.object-ctn .object-ctn-title:before{
+    content: "";
+    position: absolute;
+    left: 250px;
+    top: 50%;
+    transform: translateY(-30%);
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: #333;
+}
+
+/* style des objets */
+.object-list{
+    display: flex;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+.object{
+    display: flex;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.object .object-image{
+    width: 120px;
+    height: 120px;
+    background-color: #555;
+}
+.object .object-info{
+    padding: 0 20px;
+    width: 230px;
+}
+.object .object-info .object-title{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.object .object-info .object-description{
+    font-size: 14px;
+    font-weight: 400;
+    height: 35px;
+    overflow: hidden;
+}
+.object .object-info .object-time{
+    font-size: 10px;
+    font-weight: 400;
+    margin: 5px;
+}
+.object .object-info .object-btn{
+    width: 120px;
+    text-align: center;
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.object .object-info .object-btn:hover{
+    background-color: #3977a7;
+}
+
+/* end of object style */
+
+/* get started style */
+
+.get-started{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 0 50px;
+}
+.get-started > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 0.5em;
+    transition: 1s;
+    transform: scale(1);
+    filter: grayscale(100%);
+    cursor: pointer;
+}
+.get-started > div:hover{
+    transition: .5s;
+    transform: scale(1.03);
+    filter: grayscale(0%);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, .1);
+}
+.get-started * div.titre{
+    color: var(--main-color);
+    font-weight: bolder;
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.get-started * div.content{
+    font-size: 0.9em;
+    text-align: center;
+}
+.get-started .whatis{
+    flex-basis: 25%;
+}
+.get-started .start{
+    flex-basis: 25%;
+}
+.get-started .contribute{
+    flex-basis: 25%;
+}
+
+/* end of get started style*/
+
+/*
+    style du bloc (bon gestes)
+*/
+.bon-geste{
+    background-color: var(--main-color);
+    color: white;
+    width: 100%;
+    height: 80vh;
+}
+.bon-geste .title{
+    margin: 1.7em 0;
+    color: var(--secondary-color);
+}
+
+
+
+/* other styles */
+.jump{
+    padding: 20px 0;
+}
+.center-elem{
+    display: flex;
+    justify-content: center;
+}
+.btn-link{
+    border: none;
+    color: var(--main-color);
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+}
+.scrollUpBtn{
+    position: fixed;
+    bottom: -30%;
+    right: 2%;
+    color: var(--main-color);
+    background-color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 0.8em;
+    font-size: 1.2em;
+    box-shadow: 0 7px 30px rgba(0, 0, 0, .5);
+    transition: .5s;
+}
+.slideUp{
+    bottom: 3%;
+    transition: .5s;
+}
+
+.shrink-up{
+    transition: .7s;
+    height: 40px;
+    background-color: var(--main-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+}
+
+.appear{
+    opacity: 1;
+    height: 30px;
+    transition: 1s;
+}

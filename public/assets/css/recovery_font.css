@@ -1,0 +1,9 @@
+/* this  file is just for importing fonts to the recovery projet */
+
+@font-face {
+    font-family: monstserrat;
+    font-weight: regular;
+    src: url(../font/Montserrat/Montserrat-Medium.ttf);
+}
+
+/* Font imported succesfuly */
