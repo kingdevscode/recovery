@@ -18,9 +18,10 @@ class UserController extends Controller
 
 
 
-            $user = User::select('users.id','users.name','users.prenom','users.num_cni','users.telephone','users.poste','users.email','users.password','roles.libelle_role','agences.libelle_bat')
+            $user = User::select('users.id','users.name','users.prenom','users.poste',
+            'users.email','users.password','roles.nom_role','agences.nom_agence')
             ->join('roles','roles.id','=','users.id_role')
-            ->join('agences','agences.id','=','agences.id_Agence')
+            ->join('agences','agences.id','=','users.id_agence')
             ->get();
             return view('user.index', compact('user'));
             }
@@ -76,7 +77,7 @@ class UserController extends Controller
                     'password_confirmation'  =>  'required|same:password',
 
                     'id_role' => 'required|exists:roles,id',
-                    'id_Agence' => 'required|exists:Agences,id'
+                    'id_agence' => 'required|exists:Agences,id'
 
                 ]);
                 $requestData = $request->all();
@@ -102,7 +103,7 @@ class UserController extends Controller
     {
                 $user = User::findOrFail($id);
                 $role = Role::findOrFail($user['id_role']) ;
-                $Agence = Agence::findOrFail($user['id_Agence']) ;
+                $Agence = Agence::findOrFail($user['id_agence']) ;
 
                 return view('user.show', compact('user','role','Agence'));
 
@@ -148,7 +149,7 @@ class UserController extends Controller
                     'password' => 'required|string|min:8|confirmed',
                     'password_confirmation'  =>  'required|min:8|confirmed',
                     'id_role' => 'required|exists:roles,id',
-                    'id_Agence' => 'required|exists:Agences,id'
+                    'id_agence' => 'required|exists:Agences,id'
                 ]);
                 $requestData = $request->all();
 

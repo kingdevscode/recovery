@@ -17,8 +17,7 @@ class User extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('prenom')->nullable();
-            $table->string('num_cni')->nullable();
-            $table->string('telephone')->nullable();
+           
             $table->string('poste')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
