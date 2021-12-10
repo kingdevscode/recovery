@@ -17,11 +17,26 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
+    protected $table='users';
+    protected $primaryKey='id';
+    protected $fillable=['name', 'prenom','num_cni','telephone','poste', 'email','password','id_role','id_agence'] ;
+
+    public function id_role(){
+        return $this->belongsTo('App\Models\role');
+    }
+    public function id_agence(){
+        return $this->belongsTo('App\Models\agence');
+    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+   /* protected $fillable = [
         'name',
         'email',
         'password',
-    ];
+    ];*/
 
     /**
      * The attributes that should be hidden for serialization.
