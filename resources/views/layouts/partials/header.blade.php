@@ -68,17 +68,7 @@
                                     <div class="no-gutters row">
                                         <div class="col-sm-6 col-xl-4">
                                             <ul class="nav flex-column">
-                                                <?php
-                                                use App\Models\Role;
-                                                $user=Auth::user();
-
-                                                if( $user)
-                                                {
-                                                    $role = Role::Where('id','=',$user->id_role)->first();
-                                                    if(  $role['libelle_role']==="super_admin" || $role['libelle_role']==="admin"|| $role['libelle_role']==="utilisateur")
-                                                    {
-
-                                                ?>
+                                               
                                                 <li class="nav-item-header nav-item">
                                                     Menu
                                                 </li>
@@ -104,25 +94,13 @@
                                                         </a>
                                                 </li>
 
-                                                <?php
-                                                }
-                                                }
-                                             ?>
+                                                
 
                                             </ul>
                                         </div>
                                         <div class="col-sm-6 col-xl-4">
                                            <ul class="nav flex-column">
-                                            <?php
-
-                                            $user=Auth::user();
-
-                                            if( $user)
-                                            {
-                                                $role = Role::Where('id','=',$user->id_role)->first();
-                                                if(  $role['libelle_role']==="super_admin" || $role['libelle_role']==="admin"){
-
-                                            ?>
+                                            
                                             <br>
                                             <li>
 
@@ -152,31 +130,12 @@
 
                                                     </a> <br> <br>
                                                 </li>
-                                                <?php
-                                                 }else {
-                                                ?>
-                                                    <div align="center" >
-                                                        <img src="{{asset('assets/images/favicon.png')}}" alt="photo"
-                                                        width="130px"  >
-                                                    </div>
-                                                     <?php
-                                                }
-                                                }
-                                                ?>
+                                                
                                             </ul>
                                         </div>
                                         <div class="col-sm-6 col-xl-4">
                                             <ul class="nav flex-column">
-                                                <?php
-
-                                                $user=Auth::user();
-
-                                                if( $user)
-                                                {
-                                                    $role = Role::Where('id','=',$user->id_role)->first();
-                                                    if(  $role['libelle_role']==="super_admin" ){
-
-                                                ?>
+                                                
                                                 <br>
                                                 <li>
                                                     <a href="/">
@@ -194,17 +153,7 @@
                                                     &nbsp &nbsp &nbsp<b> Role</b>
                                                     </a>
                                                 </li><br>
-                                                <?php
-                                                    }else {
-                                                ?>
-                                                    <div align="center"  >
-                                                        <img src="{{asset('assets/images/favicon.png')}}" alt="photo"
-                                                        width="130px"  >
-                                                    </div>
-                                                     <?php
-                                                }
-                                                }
-                                               ?>
+                                             
                                             </ul>
                                         </div>
                                     </div>
@@ -217,56 +166,7 @@
 
             </ul>
         </div>
-        <?php
-        use App\Models\Materiel;
-        use App\Models\Categorie;
-
-
-
-        use App\Models\Statut;
-        use App\Models\Batiment;
-        use App\Models\Demande;
-        use App\Models\Etat;
-        $user=Auth::user();
-
-            if($user)
-            {
-
-
-        $role = Role::Where('id','=',$user->id_role)->first() ;
-        //
-        if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin"|| $role['libelle_role']==="utilisateur" )
-        {
-
-            //$etat = Etat::Where('nom_etat','=', 'En attente') ;
-        //$d=Demande::all()->Where('id_etat','=',$etat->id);
-        //afficher les 5 derniere demandes valider ou non valider
-        $d = Demande::select('demandes.id','demandes.nom_demande','etats.nom_etat')
-            ->join('etats','etats.id','=','demandes.id_etat')
-            ->join('users','users.id','=','demandes.id_user')
-            ->where('demandes.id_user','=',$user->id  )
-            ->Where('etats.nom_etat' ,'=','Valider')
-            ->orWhere('etats.nom_etat','=','Non Valider')
-            ->orderBy('demandes.id', 'desc')
-            ->limit(5)
-            ->get();
-
-            //compter les demandes en attentes
-            $demande = Demande::select('demandes.id','demandes.nom_demande','demandes.description_d','etats.nom_etat','users.name')
-            ->join('etats','etats.id','=','demandes.id_etat')
-            ->join('users','users.id','=','demandes.id_user')
-            ->Where('etats.nom_etat' ,'=','En attente')
-            ->count();
-            //demandes en attente
-            $d1 = Demande::select('demandes.id','demandes.nom_demande','etats.nom_etat')
-            ->join('etats','etats.id','=','demandes.id_etat')
-            ->join('users','users.id','=','demandes.id_user')
-            ->Where('etats.nom_etat' ,'=','En attente')
-            ->orderBy('demandes.id', 'desc')
-            ->limit(5)
-            ->get();
-           // dd($d1);
-        ?>
+        
         <div class="app-header-right">
             <div class="header-dots">
                 <div class="dropdown">
@@ -283,28 +183,12 @@
                                     <div class="menu-header-image opacity-1" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
                                     <div class="menu-header-content text-dark">
                                         <h5 class="menu-header-title">Notifications</h5>
-                                        <?php
-                                            $user=Auth::user();
-
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if( $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin" )
-                                            {
-                                        ?>
-                                        <h6 class="menu-header-subtitle">Vous avez <b>{{$demande}}</b> demande en attente</h6>
-                                        <?php }}?>
-                                        <?php
-                                            $user=Auth::user();
-
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if( $role['libelle_role']==="utilisateur" )
-                                            {
-                                        ?>
-                                        <h6 class="menu-header-subtitle">Vous avez <b>{{count($d)}}</b>qui ont ete traiter</h6>
-                                        <?php }}?>
+                                        bbb
+                                        <h6 class="menu-header-subtitle">Vous avez <b>hh</b> demande en attente</h6>
+                                        
+                                        ddd
+                                        <h6 class="menu-header-subtitle">Vous avez <b>hh</b>qui ont ete traiter</h6>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -325,50 +209,24 @@
                                         </thead>
 
                                     <tbody>
-                                        <?php
-                                            $user=Auth::user();
-
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin")
-                                            {
-                                        ?>
-                                            @foreach($d1 as $item)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-
-                                                    <td>{{ $item->nom_demande }}</td>
-
-
-                                                    <td>{{ $item->nom_etat }}</td>
-                                                </tr>
-                                            @endforeach
-                                        <?php }} ?>
+                                        
+                                           
+                                        
                                         <?php
 
-                                            $user=Auth::user();
+                                            //$user=Auth::user();
 
-                                                if($user)
-                                                {
+                                               // if($user)
+                                                //{
 
 
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
+                                            //$role = Role::Where('id','=',$user->id_role)->first() ;
                                             //
-                                            if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin"|| $role['libelle_role']==="utilisateur" )
-                                            {
+                                            //if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin"|| $role['libelle_role']==="utilisateur" )
+                                            //{
                                         ?>
-                                            @foreach($d as $item)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-
-                                                <td>{{ $item->nom_demande }}</td>
-
-
-                                                <td>{{ $item->nom_etat }}</td>
-                                            </tr>
-                                            @endforeach
-                                        <?php }} ?>
+                                          
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -387,8 +245,8 @@
             </div>
 
             <?php
-            }
-            }
+            
+            
             ?>
 
             <div class="header-btn-lg pr-0">
@@ -415,8 +273,6 @@
 
                                                         <div class="widget-content-right">
                                                             <div class="widget-heading">
-                                                                {{ Auth::user()->name }}
-                                                                {{ Auth::user()->prenom }}
                                                             </div>
 
 
@@ -433,14 +289,14 @@
 
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Nom
-                                                        <div class="ml-auto badge  badge-alternate">{{ Auth::user()->name }}
+                                                        <div class="ml-auto badge  badge-alternate">{{-- Auth::user()->name --}}
                                                         </div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Prenom
                                                         <div class="ml-auto badge  badge-alternate">
-                                                            {{ Auth::user()->prenom }}
+                                                            {{-- Auth::user()->prenom --}}
 
                                                         </div>
                                                     </a>
@@ -448,7 +304,7 @@
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Email
                                                         <div class="ml-auto badge  badge-alternate">
-                                                            {{ Auth::user()->email }}
+                                                            {{-- Auth::user()->email --}}
                                                         </div>
                                                     </a>
                                                 </li>
@@ -479,7 +335,7 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                {{ Auth::user()->name}}
+                                {{-- Auth::user()->name--}}
                             </div>
 
                         </div>

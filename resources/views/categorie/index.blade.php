@@ -43,8 +43,8 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
 
-                                            <td>{{ $item->libelle_cat }}</td>
-                                            <td>{{ $item->description_c }}</td>
+                                            <td>{{ $item->nom_categorie }}</td>
+                                            <td>{{ $item->description_categorie }}</td>
 
 
                                             <td >
