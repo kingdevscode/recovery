@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Objets extends Migration
+class Objet extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,10 @@ class Objets extends Migration
         Schema::create('objets', function(BluePrint $table){
             $table->increments('id');
             $table->String('nom_objet')->nullable();
-            $table->String('lieu_trouvail ')->nullable();
-            $table->date('date_trouvail ')->nullable();
-            $table->date('date_enregistrement ')->nullable();
-            $table->date('date_restitution ')->nullable();
+            $table->String('lieu_trouvail')->nullable();
+            $table->date('date_trouvail')->nullable();
+            $table->date('date_enregistrement')->nullable();
+            $table->date('date_restitution')->nullable();
             $table->String('statut')->nullable();
             $table->String('description')->nullable();
             $table->String('photo')->nullable();

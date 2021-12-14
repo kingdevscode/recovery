@@ -12,24 +12,12 @@ class CategorieController extends Controller
 {
     public function index(){
 
-        $user=Auth::user();
 
-        if($user)
-        {
+        
+        $categorie= Categorie::get()->all();
+        return view('categorie.index', compact('categorie'));
+    
 
-
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-             if(  $role['nom_role']==="super_admin" || $role['nom_role']==="admin" )
-            {
-                $categorie= Categorie::get()->all();
-                return view('categorie.index', compact('categorie'));
-            }
-            else{
-                 return view('errors.403');
-                }
-
-        }
     }
     public function create()
     {
@@ -40,36 +28,28 @@ class CategorieController extends Controller
     }
     public function store(Request $request)
     {
-        $user=Auth::user();
 
-        if($user)
-        {
-
-
-
-                $this->validate($request, [
-                    'nom_categorie' => 'required',
-                    'description_categorie' => 'required',
+        $this->validate($request, [
+            'nom_categorie' => 'required',
+            'description_categorie' => 'required',
 
 
-                ]);
-                $requestData = $request->all();
+        ]);
+        $requestData = $request->all();
 
 
-                Categorie::create($requestData);
+        Categorie::create($requestData);
 
-                return redirect('categorie')->with('message', 'Categorie added!');
+        return redirect('categorie')->with('message', 'Categorie added!');
 
-
-        }
     }
     public function show($id)
-    { $user=Auth::user();
+    {
 
 
-                $categorie = Categorie::where('id', '=', $id)->first();
+        $categorie = Categorie::where('id', '=', $id)->first();
 
-                return view('categorie.show', compact('categorie'));
+        return view('categorie.show', compact('categorie'));
 
 
 
@@ -84,11 +64,10 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
+        $categorie = Categorie::findOrFail($id);
+        return view('categorie.edit', compact('categorie'));
 
-                $categorie = Categorie::findOrFail($id);
-                return view('categorie.edit', compact('categorie'));
-
-        }
+    }
 
 
     /**
@@ -101,24 +80,23 @@ class CategorieController extends Controller
      */
     public function update(Request $request, $id)
     {
-                $this->validate($request, [
-                    'nom_categorie' => 'required',
-                    'description_categorie' => 'required',
+        $this->validate($request, [
+            'nom_categorie' => 'required',
+            'description_categorie' => 'required',
 
-                ]);
-                $requestData = $request->all();
+        ]);
+        $requestData = $request->all();
 
-                $categorie = Categorie::findOrFail($id);
-                $categorie->update($requestData);
+        $categorie = Categorie::findOrFail($id);
+        $categorie->update($requestData);
 
 
     }
     public function destroy($id)
     {
 
-                $delete =  Categorie::destroy($id);
-
-                return redirect('categorie')->with('message');
-        }
+        $delete =  Categorie::destroy($id);
+        return redirect('categorie')->with('message');
+    }
 
 }

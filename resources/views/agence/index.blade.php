@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
 
@@ -55,7 +55,7 @@
                                                         </i></button></a>
                                                 <a href="{{ url('/batiment/' . $item->id . '/edit') }}" title="Editer batiment">
                                                     <button class="mb-2 mr-2 btn-hover-shine btn btn-primary btn-sm">
-                                                        <i class="fa fa-pen" aria-hidden="true"></i> 
+                                                        <i class="fa fa-pen" aria-hidden="true"></i>
                                                     </button>
                                                 </a>
 

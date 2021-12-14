@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
 
@@ -43,8 +43,8 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
 
-                                            <td>{{ $item->libelle_cat }}</td>
-                                            <td>{{ $item->description_c }}</td>
+                                            <td>{{ $item->nom_categorie }}</td>
+                                            <td>{{ $item->description_categorie }}</td>
 
 
                                             <td >
@@ -52,7 +52,7 @@
                                                     <button class="mb-2 mr-2 btn-hover-shine btn btn-info "><i class="fa fa-eye" aria-hidden="true">
                                                         </i> </button></a>
                                                 <a href="{{ url('/categorie/' . $item->id . '/edit') }}" title="Editer Categorie">
-                                                    <button class="mb-2 mr-2 btn-hover-shine btn btn-primary "><i class="fa fa-pen" aria-hidden="true"></i> 
+                                                    <button class="mb-2 mr-2 btn-hover-shine btn btn-primary "><i class="fa fa-pen" aria-hidden="true"></i>
                                                     </button>
                                                 </a>
                                                     <form method="post" action="{{ url('/categorie/delete/' . $item->id) }}"style="display:inline">

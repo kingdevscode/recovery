@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -26,7 +26,7 @@
 
 
 
-                      
+
                         @include ('categorie.form', ['formMode' => 'create'])
 
 

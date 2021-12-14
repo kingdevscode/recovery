@@ -1,14 +1,14 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
 
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Ajouter un Batiment</div>
+                <div class="card-header">Ajouter une Agence</div>
                 <div class="card-body">
                 <div style="float:right">
-                 <a href="{{ url('/batiment') }}" title="Retour"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</button></a>
+                 <a href="{{ url('/agence') }}" title="Retour"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</button></a>
                     </div>
                     <br />
                     <br />
@@ -21,13 +21,13 @@
                         </ul>
                     @endif
 
-                    <form method="POST" action="{{ url('/batiment') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('/agence') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
 
 
 
-                        @include ('batiment.form', ['formMode' => 'create'])
+                        @include ('agence.form', ['formMode' => 'create'])
 
 
                     </form>

@@ -23,8 +23,7 @@ class AgenceSeeder extends Seeder
         $agence1->save();
 
         $agence = new Agence();
-        $agence->libelle_bat = "agence_Ngui";
-        $agence1->nom_agence = "agence_foto";
+        $agence1->nom_agence = "agence_Ngui";
         $agence1->ville_agence = "dschang";
         $agence1->telephone_agence = "644939032";
         $agence->description_agence ="agence situee au marche foto en face de la paroisse saint Mathias";
