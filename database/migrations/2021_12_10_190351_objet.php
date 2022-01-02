@@ -20,7 +20,7 @@ class Objet extends Migration
             $table->date('date_trouvail')->nullable();
             $table->date('date_enregistrement')->nullable();
             $table->date('date_restitution')->nullable();
-            $table->String('statut')->nullable();
+            $table->enum('statut', ['attente', 'demandé','restitué'])->nullable()->default('attente');
             $table->String('description')->nullable();
             $table->String('photo')->nullable();
             $table->integer('id_categorie')->unsigned();

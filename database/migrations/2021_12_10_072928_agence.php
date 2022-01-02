@@ -15,12 +15,12 @@ class Agence extends Migration
     {
         Schema::create('agences', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom_agence')->nullable();
-            $table->string('ville_agence')->nullable();
-            $table->string('telephone_agence')->nullable();
+            $table->string('nom_agence');
+            $table->string('ville_agence');
+            $table->string('quartier_agence')->nullable();
+            $table->string('tel_agence')->nullable();
             $table->string('description_agence')->nullable();
             $table->timestamps();
-
 
         });
     }
