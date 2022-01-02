@@ -29,10 +29,22 @@
 
                                     <tr>
                                         <th> Nom agence </th>
-                                        <td> {{ $agence->libelle_agence }} </td>
+                                        <td> {{ $agence->nom_agence }} </td>
                                     </tr>
                                     <tr>
-                                        <th>Description </th>
+                                        <th> Ville agence </th>
+                                        <td> {{ $agence->ville_agence }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Quartier agence </th>
+                                        <td> {{ $agence->quartier_agence }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Telephone agence </th>
+                                        <td> {{ $agence->telephone_agence }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description agence </th>
                                         <td> {{ $agence->description_agence }} </td>
                                     </tr>
 

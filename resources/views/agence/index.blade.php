@@ -8,9 +8,9 @@
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Batiment</div>
+                    <div class="card-header">agence</div>
                     <div class="card-body">
-                        <a href="{{ url('/batiment/create') }}" class="mb-2 mr-2 btn-hover-shine btn btn-success btn-sm" title="Ajouter batiment">
+                        <a href="{{ url('/agence/create') }}" class="mb-2 mr-2 btn-hover-shine btn btn-success btn-sm" title="Ajouter agence">
                             <i class="fa fa-plus" aria-hidden="true"></i> Ajouter
                         </a>
                         &nbsp;&nbsp;
@@ -30,7 +30,11 @@
 
 
                                             <th>#</th>
-                                            <th>{{__('Nom De La batiment')}}</th>
+                                            <th>{{__('Nom De agence')}}</th>
+                                            <th>{{__('ville De agence')}}</th>
+                                            <th>{{__('Quartier')}}</th>
+                                            <th>{{__('telephone De agence')}}</th>
+
                                             <th>{{__('Description ')}}</th>
 
                                             <th>{{__('Actions')}}</th>
@@ -39,31 +43,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($batiment as $item)
+                                    @foreach($agence as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
 
-                                            <td>{{ $item->libelle_bat }}</td>
-                                            <td>{{ $item->description_b }}</td>
-
+                                            <td>{{ $item->nom_agence }}</td>
+                                            <td>{{ $item->ville_agence }}</td>
+                                            <td>{{ $item->quartier_agence }}</td>
+                                            <td>{{ $item->telephone_agence }}</td>
+                                            <td>{{ $item->description }}</td>
 
                                             <td >
 
-                                                <a href="{{ url('/batiment/' . $item->id) }}" title="Voir batiment">
+                                                <a href="{{ url('/agence/' . $item->id) }}" title="Voir agence">
                                                     <button class="mb-2 mr-2 btn-hover-shine btn btn-info btn-sm">
                                                         <i class="fa fa-eye" aria-hidden="true">
                                                         </i></button></a>
-                                                <a href="{{ url('/batiment/' . $item->id . '/edit') }}" title="Editer batiment">
+                                                <a href="{{ url('/agence/' . $item->id . '/edit') }}" title="Editer agence">
                                                     <button class="mb-2 mr-2 btn-hover-shine btn btn-primary btn-sm">
                                                         <i class="fa fa-pen" aria-hidden="true"></i>
                                                     </button>
                                                 </a>
 
-                                                <form method="post" action="{{ url('/batiment/delete/' . $item->id) }}"style="display:inline" >
+                                                <form method="post" action="{{ url('/agence/delete/' . $item->id) }}"style="display:inline" >
                                                     {{ method_field('DELETE') }}
                                                     @csrf
                                                     <button class="mb-2 mr-2 btn-hover-shine btn btn-danger delete-confirm" type="submit"
-                                                    title="supprimer batiment" >
+                                                    title="supprimer agence" >
                                                         <i class="fa fa-trash"></i>
                                                        </button>
                                                 </form>

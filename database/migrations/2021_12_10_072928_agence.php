@@ -17,6 +17,7 @@ class Agence extends Migration
             $table->increments('id');
             $table->string('nom_agence')->nullable();
             $table->string('ville_agence')->nullable();
+            $table->string('quartier_agence')->nullable();
             $table->string('telephone_agence')->nullable();
             $table->string('description_agence')->nullable();
             $table->timestamps();

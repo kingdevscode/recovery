@@ -15,12 +15,12 @@ class RoleSeeder extends Seeder
     {
         $role1 = new Role();
         $role1->nom_role = "admin";
-        $role1->description_r = "resposable des differentes depenses";
+        $role1->description_r = "resposable de l'enregistrement du personnel et des objets";
         $role1->save();
 
         $role2 = new Role();
-        $role2->nom_role = "super_admin";
-        $role2->description_r = "resposable des differentes depenses";
+        $role2->nom_role = "employe";
+        $role2->description_r = "personne chargee de l' enregisrement des objets";
         $role2->save();
 
 

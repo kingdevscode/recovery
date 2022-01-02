@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {
+    return view('auth.login');
+});
 /*Route::get('/', function () {
     return view('index');
-});*/
+});
 Route::get('/', function () {
     return view('layouts/apps');
-});
-//Route::group(['middleware' => ['auth']], function () {
+});*/
+Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'user'], function () {
 
         Route::post('/', 'App\Http\Controllers\UserController@store');
@@ -114,8 +116,9 @@ Route::get('/', function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
 
-//});
+});
     Auth::routes();
     Auth::routes(['register' => false]);
 
     Route::get('/home', [App\Http\Controllers\StatistiqueController::class, 'index'])->name('home');
+
