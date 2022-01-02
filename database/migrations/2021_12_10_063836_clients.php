@@ -20,6 +20,9 @@ class Clients extends Migration
             $table->string('prenom')->nullable();
             $table->string('num_cni')->nullable();
             $table->string('telephone')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('quartier')->nullable();
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
