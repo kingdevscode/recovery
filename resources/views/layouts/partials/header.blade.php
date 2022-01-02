@@ -20,13 +20,13 @@
 
 <div class="app-header header-shadow">
     <div>
-        <div style="margin-left:80px">
-            <a href="{{asset('assets/images/logo.png')}}" target="_self">
-            <span class="icon-wrapper icon-wrapper-alt rounded-circle">
-                <span class="icon-wrapper-bg bg-success"></span>
-                <img src="{{asset('assets/images/logo.png')}}" width="60px" alt="photo">
-            </span>
-        </a>
+        <div style="margin-left:80px; overflow: hidden">
+            <a href="{{asset('assets/autres/img/logo.png')}}" target="_self">
+
+                {{-- <span class="icon-wrapper-bg bg-success"></span> --}}
+                <img src="{{asset('assets/autres/img/logo.png')}}" style="filter:invert()" width="100px" alt="photo">
+
+            </a>
 
         </div>
 

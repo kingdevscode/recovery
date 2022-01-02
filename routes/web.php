@@ -68,17 +68,17 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
 
-   /* Route::group(['prefix' => 'statut'], function () {
+    Route::group(['prefix' => 'suggestion'], function () {
 
-        Route::post('/', 'App\Http\Controllers\StatutController@store');
-        Route::get('/create', 'App\Http\Controllers\StatutController@create');
-        Route::get('/{id}/edit', 'App\Http\Controllers\StatutController@edit');
-        Route::delete('/delete/{id}', 'App\Http\Controllers\StatutController@destroy');
-        Route::get('/{id}', 'App\Http\Controllers\StatutController@show');
-        Route::patch('/{id}', 'App\Http\Controllers\StatutController@update');
-        Route::get('/', 'App\Http\Controllers\StatutController@index');
+        Route::post('/', 'App\Http\Controllers\SuggestionController@store');
+        Route::get('/create', 'App\Http\Controllers\SuggestionController@create');
+        Route::get('/{id}/edit', 'App\Http\Controllers\SuggestionController@edit');
+        Route::delete('/delete/{id}', 'App\Http\Controllers\SuggestionController@destroy');
+        Route::get('/{id}', 'App\Http\Controllers\SuggestionController@show');
+        Route::patch('/{id}', 'App\Http\Controllers\SuggestionController@update');
+        Route::get('/', 'App\Http\Controllers\SuggestionController@index');
     });
-    Route::group(['prefix' => 'materiel'], function () {
+    /*Route::group(['prefix' => 'materiel'], function () {
 
         Route::post('/', 'App\Http\Controllers\MaterielController@store');
         Route::get('/create', 'App\Http\Controllers\MaterielController@create');

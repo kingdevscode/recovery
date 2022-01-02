@@ -22,7 +22,6 @@ class Agence extends Migration
             $table->string('description_agence')->nullable();
             $table->timestamps();
 
-
         });
     }
 

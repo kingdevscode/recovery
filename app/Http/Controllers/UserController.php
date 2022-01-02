@@ -24,7 +24,7 @@ class UserController extends Controller
             ->join('agences','agences.id','=','users.id_agence')
             ->get();
             return view('user.index', compact('user'));
-            }
+    }
 
 
 
