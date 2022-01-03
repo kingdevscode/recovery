@@ -78,17 +78,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::patch('/{id}', 'App\Http\Controllers\SuggestionController@update');
         Route::get('/', 'App\Http\Controllers\SuggestionController@index');
     });
-    /*Route::group(['prefix' => 'materiel'], function () {
+    Route::group(['prefix' => 'objet'], function () {
 
-        Route::post('/', 'App\Http\Controllers\MaterielController@store');
-        Route::get('/create', 'App\Http\Controllers\MaterielController@create');
-        Route::get('/{id}/edit', 'App\Http\Controllers\MaterielController@edit');
-        Route::delete('/delete/{id}', 'App\Http\Controllers\MaterielController@destroy');
-        Route::get('/{id}', 'App\Http\Controllers\MaterielController@show');
-        Route::patch('/{id}', 'App\Http\Controllers\MaterielController@update');
-        Route::get('/', 'App\Http\Controllers\MaterielController@index');
-        Route::patch('/assigner/{id}', 'App\Http\Controllers\MaterielController@assigner');
-        Route::get('u/', 'App\Http\Controllers\MaterielController@materiel_user');
+        Route::post('/', 'App\Http\Controllers\ObjetController@store');
+        Route::get('/create', 'App\Http\Controllers\ObjetController@create');
+        Route::get('/{id}/edit', 'App\Http\Controllers\ObjetController@edit');
+        Route::delete('/delete/{id}', 'App\Http\Controllers\ObjetController@destroy');
+        Route::get('/{id}', 'App\Http\Controllers\ObjetController@show');
+        Route::patch('/{id}', 'App\Http\Controllers\ObjetController@update');
+        Route::get('/', 'App\Http\Controllers\ObjetController@index');
+
 
         });
 
@@ -101,12 +100,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/{id}', 'App\Http\Controllers\DemandeController@show');
         Route::patch('/{id}', 'App\Http\Controllers\DemandeController@update');
         Route::get('/', 'App\Http\Controllers\DemandeController@index');
-        Route::get('u/', 'App\Http\Controllers\DemandeController@demande_user');
-        Route::patch('/valider/{id}', 'App\Http\Controllers\DemandeController@changer');
-        Route::patch('/refuser/{id}', 'App\Http\Controllers\DemandeController@refuser');
 
     });
+    Route::group(['prefix' => 'signale'], function () {
 
+        Route::post('gh/', 'App\Http\Controllers\SignaleController@store');
+        Route::get('/create', 'App\Http\Controllers\SignaleController@create');
+        Route::get('/{id}/edit', 'App\Http\Controllers\SignaleController@edit');
+        Route::delete('/delete/{id}', 'App\Http\Controllers\SignaleController@delete');
+        Route::get('/{id}', 'App\Http\Controllers\SignaleController@show');
+        Route::patch('/{id}', 'App\Http\Controllers\SignaleController@update');
+        Route::get('/', 'App\Http\Controllers\SignaleController@index');
+
+    });
+    Route::group(['prefix' => 'client'], function () {
+
+        Route::post('gh/', 'App\Http\Controllers\ClientController@store');
+        Route::get('/create', 'App\Http\Controllers\ClientController@create');
+        Route::get('/{id}/edit', 'App\Http\Controllers\ClientController@edit');
+        Route::delete('/delete/{id}', 'App\Http\Controllers\ClientController@delete');
+        Route::get('/{id}', 'App\Http\Controllers\ClientController@show');
+        Route::patch('/{id}', 'App\Http\Controllers\ClientController@update');
+        Route::get('/', 'App\Http\Controllers\ClientController@index');
+
+    });
 
     /*Auth::routes();
 

@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Objet extends Migration
+class Objets extends Migration
+
 {
     /**
      * Run the migrations.
@@ -20,8 +21,8 @@ class Objet extends Migration
             $table->date('date_trouvail')->nullable();
             $table->date('date_enregistrement')->nullable();
             $table->date('date_restitution')->nullable();
-            $table->enum('statut', ['attente', 'demandé','restitué'])->nullable()->default('attente');
-            $table->String('description')->nullable();
+            $table->enum('statut_objet', ['attente', 'demandé','restitué'])->nullable()->default('attente');
+            $table->String('description_o')->nullable();
             $table->String('photo')->nullable();
             $table->integer('id_categorie')->unsigned();
             $table->integer('id_user')->unsigned();

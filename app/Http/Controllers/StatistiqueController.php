@@ -8,11 +8,11 @@ use App\Models\Client;
 use App\Models\Role;
 use App\Models\Suggestion;
 use App\Models\Objet;
-use App\Models\Reclamer;
-use App\Models\Signaler;
+use App\Models\demande;
+use App\Models\Signale;
 
 use Illuminate\Http\Request;
-use Suggestions;
+
 
 class StatistiqueController extends Controller
 {
@@ -24,8 +24,10 @@ class StatistiqueController extends Controller
     $Role = Role::all()->count();
     $suggestion = Suggestion::all()->count();
     $objet = Objet::all()->count();
+    $signale = signale::all()->count();
+    $demande = demande::all()->count();
 
     return view('home',compact('user','categorie',
-    'client','agence','role','suggestion','objet','signaler'));
+    'client','agence','role','suggestion','objet','signale','demande'));
    }
 }

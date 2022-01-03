@@ -16,14 +16,17 @@ class Clients extends Migration
        //
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('prenom')->nullable();
-            $table->string('num_cni')->nullable();
-            $table->string('telephone')->nullable();
+            $table->string('name_client');
+            $table->string('prenom_client')->nullable();
+            $table->string('num_cni_c')->nullable();
+            $table->string('telephone_c')->nullable();
+            $table->string('photo_c')->nullable();
+            $table->string('ville_c')->nullable();
+            $table->string('quartier_c')->nullable();
 
-            $table->string('email')->unique();
+            $table->string('email_c')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password_client');
         });
     }
 
@@ -34,6 +37,6 @@ class Clients extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('clients');
     }
 }

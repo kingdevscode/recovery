@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Suggestion extends Model
 {
     use HasFactory;
-    protected $guarded=[];
 
-    protected $table='suggestions';
-    protected $primaryKey='id';
+    protected $table = 'suggestions';
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['description', 'posted_at', 'id_client'];
+
+    public function id_client(){
+        return $this->belongsTo('App/Models/Client');
+    }
 }
