@@ -9,7 +9,7 @@ class Objet extends Model
 {
     use HasFactory;
 
-    protected $table='objet';
+    protected $table='objets';
     protected $primaryKey='id';
     protected $fillable=['nom_objet', 'lieu_trouvail','date_trouvail',
     'date_enregistrement','date_restitution','statut_objet','description_o

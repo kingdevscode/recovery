@@ -21,7 +21,7 @@ class StatistiqueController extends Controller
     $categorie = Categorie::all()->count();
     $client = Client::all()->count();
     $agence = Agence::all()->count();
-    $Role = Role::all()->count();
+    $role = Role::all()->count();
     $suggestion = Suggestion::all()->count();
     $objet = Objet::all()->count();
     $signale = signale::all()->count();

@@ -335,22 +335,22 @@
 
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Nom
-                                                       {{-- <div class="ml-auto badge  badge-alternate">{{ Auth::user()->name }}
-                                                        </div>--}}
+                                                       <div class="ml-auto badge  badge-alternate">{{ Auth::user()->name }}
+                                                        </div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Prenom
-                                                       {{-- <div class="ml-auto badge  badge-alternate">
+                                                       <div class="ml-auto badge  badge-alternate">
                                                             {{ Auth::user()->prenom }}
 
-                                                        </div>--}}
+                                                        </div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Email
                                                         <div class="ml-auto badge  badge-alternate">
-                                                        {{--    {{ Auth::user()->email }}--}}
+                                                        {{ Auth::user()->email }}
                                                         </div>
                                                     </a>
                                                 </li>
