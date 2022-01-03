@@ -48,24 +48,7 @@
 
 
 
-                    <li>
 
-                        <a href="/" >
-                            <i class="fas fa-building"></i>
-                            &nbsp &nbsp &nbsp <b> Agence</b>
-
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="{{url('/agence')}}">
-                                    <i class="fa fa-angle-right"></i>
-                                    &nbsp &nbsp &nbsp consulter
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
 
 
                     <li>
@@ -86,14 +69,111 @@
                     </li>
 
 
+                    <li>
+                        <a href="/" >
+
+                            <i class="fas fa-star"></i>
+                            &nbsp &nbsp &nbsp <b> Objets</b>
 
 
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/objet')}}">
+                                    <i class="fa fa-angle-right"></i> &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/" >
+                            <i class="fas fa-users"></i>
+                                                 &nbsp &nbsp &nbsp <b> client</b>
+
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/client')}}">
+                                    <i class="fa fa-angle-right"></i> &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/" >
+                            <i class="fas fa-sticky-note"></i>
+                            &nbsp &nbsp &nbsp <b> Demandes</b>
+
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/demande')}}">
+                                    <i class="fa fa-angle-right"></i> &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/" >
+                            <i class="fas fa-flag"></i>
+                                                        &nbsp &nbsp &nbsp <b> Signaler</b>
+
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/signale')}}">
+                                    <i class="fa fa-angle-right"></i> &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/" >
+                            <i class="fas fa-object-group"></i>
+                            &nbsp &nbsp &nbsp <b> Suggestions</b>
+
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/suggestion')}}">
+                                    <i class="fa fa-angle-right"></i> &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="/" >
+                            <i class="fas fa-building"></i>
+                            &nbsp &nbsp &nbsp <b> Agence</b>
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{{url('/agence')}}">
+                                    <i class="fa fa-angle-right"></i>
+                                    &nbsp &nbsp &nbsp consulter
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
 
                     <li>
 
                             <a href="/">
                                 <i class="fas fa-user"></i>
-                                &nbsp &nbsp &nbsp<b> Utilisateur</b>
+                                &nbsp &nbsp &nbsp<b> Personnel</b>
 
                             </a>
                             <ul>
