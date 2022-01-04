@@ -41,13 +41,14 @@
                                             <th>{{__('Actions')}}</th>
 
 
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($objet as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                           
+
 
                                             <td>{{ $item->nom_objet }}</td>
                                             <td>{{ $item->lieu_trouvail }}</td>
