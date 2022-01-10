@@ -12,7 +12,7 @@ class SignaleController extends Controller
     public function index(Request $request)
     {
             $signale = signale::select('signales.id','signales.description_signale', 'signales.lieu_perte','signales.date_perte',
-    'signales.statut_signale','categories.nom_categorie','clients.name')
+    'signales.statut_signale','categories.nom_categorie','clients.name_client')
 
             ->join('categories','categories.id','=','signales.id_categorie')
             ->join('clients','clients.id','=','signales.id_client')

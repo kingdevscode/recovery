@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
 <style>
@@ -41,7 +41,7 @@
                                             <th>{{__('Actions')}}</th>
 
 
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>

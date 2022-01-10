@@ -2,38 +2,38 @@
     .nav a {
         text-decoration: none;
         color: inherit;
-        font-weight: 600;
+        font-weight: 400;
 
     }
 
     .nav a:hover {
-        font-weight: 1000;
-        color: rgb(15, 22, 21);
+        font-weight: 900;
+        color: rgb(0, 111, 152);
         border-radius: 5px;
 
     }
 
 </style>
-
-
-
-
 <div class="app-header header-shadow">
     <div>
-        <div style="margin-left:80px; overflow: hidden">
+        <div style="margin-left:80px">
             <a href="{{asset('assets/autres/img/logo.png')}}" target="_self">
 
                 {{-- <span class="icon-wrapper-bg bg-success"></span> --}}
                 <img src="{{asset('assets/autres/img/logo.png')}}" style="filter:invert()" width="100px" alt="photo">
 
-            </a>
+            </a>        </div>
 
+    <div class="logo-src"></div>
+        <div class="header__pane ml-auto">
+            <!--div>
+                      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                          <span class="hamburger-box">
+                              <span class="hamburger-inner"></span>
+                          </span>
+                      </button>
+                  </div-->
         </div>
-
-        <div class="logo-src"></div>
-            <div class="header__pane ml-auto">
-
-            </div>
     </div>
     <div class="app-header__mobile-menu">
         <div>
@@ -55,10 +55,17 @@
     </div>
     <div class="app-header__content">
         <div class="app-header-left">
-
+            {{-- <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="Type to search">
+                    <button class="search-icon"><span></span></button>
+                </div>
+                <button class="close"></button>
+            </div> --}}
             <ul class="header-megamenu nav">
                 <li class="nav-item">
-                    <a href="javascript:void(0);" data-placement="bottom" rel="popover-focus" data-offset="300" data-toggle="popover-custom" class="nav-link">
+                    <a href="javascript:void(0);" data-placement="bottom" rel="popover-focus" data-offset="300"
+                        data-toggle="popover-custom" class="nav-link">
                         <i class="nav-link-icon pe-7s-gift"> </i>
                         Mega Menu
                         <i class="fa fa-angle-down ml-2 opacity-5"></i>
@@ -70,95 +77,122 @@
                                     <div class="no-gutters row">
                                         <div class="col-sm-6 col-xl-4">
                                             <ul class="nav flex-column">
-
                                                 <li class="nav-item-header nav-item">
-                                                    Menu
+                                                    {{ __('Menu') }}
                                                 </li>
                                                 <li class="mm-active">
 
-                                                    <a href="{{url('/home')}}">
+                                                    <a href="dashboard">
                                                         <i class="fas fa-home" aria-hidden="true"></i>
-                                                        &nbsp &nbsp &nbsp <b> Dashboard</b> <br><br>
+                                                        &nbsp &nbsp &nbsp {{ __('Dashboard') }} <br><br>
                                                     </a>
-                                                </li>
-                                                <li>
-                                                    <a href="/" >
-                                                        <i class="fa fa-toolbox"></i>
-                                                        &nbsp &nbsp &nbsp <b> Materiel </b>
+                                                <li class="nav-item">
+                                                    <a href="{{ url('admin/entreprise') }}">
+                                                        <i class="fas fa-briefcase"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Entreprises') }}
                                                     </a>
+
                                                 </li> <br>
-
                                                 <li>
-                                                    <a href="/" >
-                                                        <i class="fas fa-sticky-note"></i>
-                                                        &nbsp &nbsp &nbsp<b> Demande</b><br><br>
-
-                                                        </a>
-                                                </li>
-
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6 col-xl-4">
-                                           <ul class="nav flex-column">
-
-
-                                            <br>
-                                            <li>
-
-                                                <a href="/batiment" >
-                                                    <i class="fas fa-building"></i>
-                                                    &nbsp &nbsp &nbsp <b> Batiment</b> <br>
-
-                                                </a>
-
-                                            </li> <br>
-                                                <li>
-                                                    <a href="/" >
-                                                        <i class="fas fa-object-group"></i>
-                                                        &nbsp &nbsp &nbsp <b>Categorie De Materiels</b>
-
-
+                                                    <a href="{{ url('admin/engin') }}">
+                                                        <i class="fas fa-car"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Engins') }}
                                                     </a>
-                                                </li><br>
 
-
-
+                                                </li> <br>
                                                 <li>
-                                                    <a href="/statut" >
-                                                        <i class="fas fa-splotch"></i>
-                                                        &nbsp &nbsp &nbsp <b>Statut</b>
-
-
-                                                    </a> <br> <br>
+                                                    <a href="{{ url('admin/reparation') }}">
+                                                        <i class="fas fa-wrench"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Réparations') }}
+                                                    </a>
                                                 </li>
 
                                             </ul>
                                         </div>
                                         <div class="col-sm-6 col-xl-4">
                                             <ul class="nav flex-column">
-
-                                                <br>
                                                 <li>
-                                                    <a href="/">
-                                                        <i class="fas fa-user"></i>
-                                                        &nbsp &nbsp &nbsp<b> Utilisateur</b>
-
+                                                    <a href="{{ url('admin/cout') }}">
+                                                        <i class="fa fa-file" aria-hidden="true"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Dévis | Facturations') }}
+                                                    </a>
+                                                </li><br>
+                                                <li>
+                                                    <a href="{{ url('admin/programme_entretien') }}">
+                                                        <i class="fas fa-calendar"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Programmes Entretiens') }}
                                                     </a>
                                                 </li><br>
 
+                                                <li>
+                                                    <a href="{{ url('admin/depense') }}">
+                                                        <i class="fa fa-money-bill" aria-hidden="true"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Dépenses') }}
+                                                    </a>
+                                                </li> <br>
+                                                <li>
+                                                    <a href="{{ url('admin/signalerpb') }}">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Signaler une Panne') }}
+                                                    </a>
+                                                </li> <br>
 
 
                                                 <li>
-                                                    <a href="/role" >
-                                                    <i class="fas fa-users-cog"></i>
-                                                    &nbsp &nbsp &nbsp<b> Role</b>
+                                                    <a href="{{ url('admin/check-lists') }}">
+                                                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                                                        &nbsp &nbsp &nbsp {{ __('Checklist') }}
                                                     </a>
-                                                </li><br>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-6 col-xl-4">
+                                            <ul class="nav flex-column">
 
-                                                    <div align="center"  >
-                                                        <img src="{{asset('assets/images/favicon.png')}}" alt="photo"
-                                                        width="130px"  >
+                                                <li>
+                                                    <a href="index.html#">
+                                                        <i class="fa fa-folder"></i>
+                                                        &nbsp &nbsp &nbsp <b>{{ __('Documments Engins') }}</b>
+                                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                                    </a>
+
+                                                    <ul>
+
+                                                        <li>
+                                                            <a href="{{ url('admin/assurance') }}">
+
+                                                                {{ __('Assurance') }}
+                                                                <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                                            </a>
+                                                        </li><br>
+                                                        <li>
+                                                            <a href="{{ url('admin/patente') }}">
+
+                                                                {{ __(' Patente | taxe') }}
+                                                                <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                                            </a>
+                                                        </li> <br>
+
+                                                        <li>
+                                                            <a href="{{ url('admin/visite-technique') }}">
+
+                                                                {{ __('Visite technique') }}
+                                                                <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                                            </a>
+                                                        </li><br>
+
+                                                    </ul>
+
+
+
+
+
+                                                </li>
+
+
+
+
+
 
                                             </ul>
                                         </div>
@@ -168,14 +202,101 @@
                         </div>
                     </div>
                 </li>
+                <li class="btn-group nav-item">
+                    <a class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        &nbsp &nbsp{{ __('Paramètres') }}
+                        <i class="fa fa-angle-down ml-2 opacity-5"></i>
+                    </a>
+                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu">
+                        <div class="dropdown-menu-header">
+                            <div class="dropdown-menu-header-inner bg-secondary">
+                                <div class="menu-header-image opacity-5"
+                                    style="background-image: url('assets/images/dropdown-header/abstract2.jpg');"></div>
+                                <div class="menu-header-content">
+                                    <h5 class="menu-header-title"> {{ __('Paramètres') }}</h5>
+                                    <h6 class="menu-header-subtitle">{{ __('Configuration de l application') }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-area-xs">
+                            <div class="scrollbar-container">
+                                <h6 tabindex="-1" class="dropdown-header">{{ __('Liste Configurations') }}</h6>
+                                <ul>
+
+                                    <li class="mm-active">
+                                        <a href="{{ url('admin/site') }}">
+
+                                            &nbsp &nbsp {{ __('Site') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('admin/engintype') }}">
+                                            &nbsp &nbsp {{ __('Type Engin') }}
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ url('admin/gamme') }}">
+                                            &nbsp &nbsp {{ __('Gamme') }}
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ url('admin/secteur-activiter') }}">
+                                            &nbsp &nbsp {{ 'secteur d\'activite' }}
+                                        </a>
+                                    </li>
+                                </ul>
 
 
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="dropdown nav-item">
+                    {{-- <a aria-haspopup="true"  data-toggle="dropdown" class="nav-link" aria-expanded="false">
+                              <i class="nav-link-icon pe-7s-settings"></i>
+                              Projects
+                              <i class="fa fa-angle-down ml-2 opacity-5"></i>
+                          </a> --}}
+                    <div tabindex="-1" role="menu" aria-hidden="true"
+                        class="dropdown-menu-rounded dropdown-menu-lg rm-pointers dropdown-menu">
+                        <div class="dropdown-menu-header">
+                            <div class="dropdown-menu-header-inner bg-success">
+                                <div class="menu-header-image opacity-1"
+                                    style="background-image: url('assets/images/dropdown-header/abstract3.jpg');"></div>
+                                <div class="menu-header-content text-left">
+                                    <h5 class="menu-header-title">Overview</h5>
+                                    <h6 class="menu-header-subtitle">Unlimited options</h6>
+                                    <div class="menu-header-btn-pane">
+                                        <button class="mr-2 btn btn-dark btn-sm">Settings</button>
+                                        <button class="btn-icon btn-icon-only btn btn-warning btn-sm">
+                                            <i class="pe-7s-config btn-icon-wrapper"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" tabindex="0" class="dropdown-item"><i
+                                class="dropdown-icon lnr-file-empty"> </i>Graphic Design</button>
+                        <button type="button" tabindex="0" class="dropdown-item"><i
+                                class="dropdown-icon lnr-file-empty"> </i>App Development</button>
+                        <button type="button" tabindex="0" class="dropdown-item"><i
+                                class="dropdown-icon lnr-file-empty"> </i>Icon Design</button>
+                        <div tabindex="-1" class="dropdown-divider"></div>
+                        <button type="button" tabindex="0" class="dropdown-item"><i
+                                class="dropdown-icon lnr-file-empty"> </i>Miscellaneous</button>
+                        <button type="button" tabindex="0" class="dropdown-item"><i
+                                class="dropdown-icon lnr-file-empty"> </i>Frontend Dev</button>
+                    </div>
+                </li>
             </ul>
         </div>
-
         <div class="app-header-right">
-           <div class="header-dots">
-                {{-- <div class="dropdown">
+            <div class="header-dots">
+                <div class="dropdown">
                         <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                 <span class="icon-wrapper-bg bg-danger"></span>
@@ -189,28 +310,7 @@
                                     <div class="menu-header-image opacity-1" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
                                     <div class="menu-header-content text-dark">
                                         <h5 class="menu-header-title">Notifications</h5>
-                                        <?php
-                                            $user=Auth::user();
 
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if( $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin" )
-                                            {
-                                        ?>
-                                        <h6 class="menu-header-subtitle">Vous avez <b>{{$demande}}</b> demande en attente</h6>
-                                        <?php }}?>
-                                        <?php
-                                            $user=Auth::user();
-
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if( $role['libelle_role']==="utilisateur" )
-                                            {
-                                        ?>
-                                        <h6 class="menu-header-subtitle">Vous avez <b>{{count($d)}}</b>qui ont ete traiter</h6>
-                                        <?php }}?>
                                     </div>
                                 </div>
                             </div>
@@ -231,50 +331,8 @@
                                         </thead>
 
                                     <tbody>
-                                        <?php
-                                            $user=Auth::user();
-
-                                            if($user)
-                                            {
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin")
-                                            {
-                                        ?>
-                                            @foreach($d1 as $item)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-
-                                                    <td>{{ $item->nom_demande }}</td>
 
 
-                                                    <td>{{ $item->nom_etat }}</td>
-                                                </tr>
-                                            @endforeach
-                                        <?php }} ?>
-                                        <?php
-
-                                            $user=Auth::user();
-
-                                                if($user)
-                                                {
-
-
-                                            $role = Role::Where('id','=',$user->id_role)->first() ;
-                                            //
-                                            if(  $role['libelle_role']==="super_admin"|| $role['libelle_role']==="admin"|| $role['libelle_role']==="utilisateur" )
-                                            {
-                                        ?>
-                                            @foreach($d as $item)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-
-                                                <td>{{ $item->nom_demande }}</td>
-
-
-                                                <td>{{ $item->nom_etat }}</td>
-                                            </tr>
-                                            @endforeach
-                                        <?php }} ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -290,7 +348,9 @@
                         </div>
                 </div>
 
-            </div>--}}
+            </div>
+
+
 
 
             <div class="header-btn-lg pr-0">
@@ -316,10 +376,10 @@
                                                     <div class="widget-content-wrapper">
 
                                                         <div class="widget-content-right">
-                                                            {{--<div class="widget-heading">
-                                                              {{ Auth::user()->name }}
+                                                            <div class="widget-heading">
+                                                                {{ Auth::user()->name }}
                                                                 {{ Auth::user()->prenom }}
-                                                            </div>--}}
+                                                            </div>
 
 
                                                         </div>
@@ -335,22 +395,22 @@
 
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Nom
-                                                       {{-- <div class="ml-auto badge  badge-alternate">{{ Auth::user()->name }}
-                                                        </div>--}}
+                                                        <div class="ml-auto badge  badge-alternate">{{ Auth::user()->name }}
+                                                        </div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Prenom
-                                                       {{-- <div class="ml-auto badge  badge-alternate">
+                                                        <div class="ml-auto badge  badge-alternate">
                                                             {{ Auth::user()->prenom }}
 
-                                                        </div>--}}
+                                                        </div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">Email
                                                         <div class="ml-auto badge  badge-alternate">
-                                                        {{--    {{ Auth::user()->email }}--}}
+                                                            {{ Auth::user()->email }}
                                                         </div>
                                                     </a>
                                                 </li>
@@ -380,8 +440,8 @@
                             </div>
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
-                           {{-- <div class="widget-heading">
-                                {{ Auth::user()->name}}--}}
+                            <div class="widget-heading">
+                                {{ Auth::user()->name}}
                             </div>
 
                         </div>
@@ -389,6 +449,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

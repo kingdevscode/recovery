@@ -15,13 +15,14 @@
 
 <div class="form-group {{ $errors->has('date_perte') ? 'has-error' : ''}}">
     <label for="date_perte" class="control-label">date_perte<span style="color:red">*</span></label>
-    <input class="form-control" name="date_perte" type="text" id="date_perte" value="{{ isset($signale->date_perte) ? $signale->date_perte : ''}}" required>
+    <input class="form-control" name="date_perte" type="date" id="date_perte" value="{{ isset($signale->date_perte) ? $signale->date_perte : ''}}" required>
     {!! $errors->first('date_perte', '<p class="help-block">:message</p>') !!}
 </div>
 
 <div class="form-group {{ $errors->has('statut_signale') ? 'has-error' : ''}}">
     <label for="statut_signale" class="control-label">statut_signale<span style="color:red">*</span></label>
-    <input class="form-control" name="statut_signale" type="text" id="statut_signale" value="{{ isset($signale->statut_signale) ? $signale->statut_signale : ''}}" required>
+    <input class="form-control" name="statut_signale" type="text" id="statut_signale" value="{{ isset($signale->statut_signale) ? $signale->statut_signale : 'en attente'}}" required>
+
     {!! $errors->first('statut_signale', '<p class="help-block">:message</p>') !!}
 </div>
 
@@ -56,6 +57,11 @@
 
 </div>
 
+<div class="form-group {{ $errors->has('id_client') ? 'has-error' : ''}}">
+    <input class="form-control" name="id_client" type="hidden" id="id_client"
+    value=" {{ isset($signale->id_client) ? $signale->id_user : Auth::guard('client')->client()->id }}"required >
+
+</div>
 
 
 <div class="form-group">

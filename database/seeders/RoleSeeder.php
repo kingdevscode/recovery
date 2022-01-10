@@ -1,9 +1,11 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Role;
 
 use Illuminate\Database\Seeder;
-use App\Models\Role;
+use GuzzleHttp\Promise\Create;
+
 class RoleSeeder extends Seeder
 {
     /**
@@ -13,17 +15,25 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $role1 = new Role();
-        $role1->nom_role = "admin";
-        $role1->description_r = "resposable de l'enregistrement du personnel et des objets";
-        $role1->save();
-
-        $role2 = new Role();
-        $role2->nom_role = "employe";
-        $role2->description_r = "personne chargee de l' enregisrement des objets";
-        $role2->save();
-
-
-
+        $role =
+        [
+            [
+                'name' => 'admin',
+                'display_name' => 'administrateur du systeme',
+                'description' => 'admin a la charge de tous ce qui concerne toute ce qui concerne la palteforme', // optional
+            ],
+            [ 'name' => 'personnel',
+            'display_name' => 'personnel',
+            'description' => 'personnel a la charge d enregistrer les objets', // optional
+            ],
+            [ 'name' => 'client',
+            'display_name' => 'client', // optional
+            'description' => 'client a la charge de declarer et signaler les objets', // optional
+            ],
+        ];
+        foreach($role as $r)
+        {
+            Role::create($r);
+        }
     }
 }

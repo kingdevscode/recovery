@@ -1,4 +1,4 @@
-@extends('layout.apps')
+@extends('layout.app')
 
 @section('content')
     <div class="container">
@@ -25,7 +25,7 @@
                                         <th> {{__('Nom')}} </th>
                                         <td> {{ $objet->nom_objet }} </td>
                                     </tr>
-                                   
+
                                     <tr>
                                         <th>{{__('lieu_trouvail')}} </th>
                                         <td> {{ $objet->lieu_trouvail }} </td>

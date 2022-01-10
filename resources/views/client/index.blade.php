@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
 <style>
@@ -45,7 +45,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($user as $item)
+                                    @foreach($client as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
 

@@ -3,233 +3,150 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ClientController extends Controller
 {
-    public function index(){
-        $client= Client::get()->all();
-        return view('client.index', compact('client'));
-       /* $user=Auth::user();
-
-        if($user)
-        {
+    public function index(Request $request)
+    {
 
 
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-            if(  $role['nom_role']==="admin"  )
-            {
-                $role= Role::get()->all();
-                return view('role.index', compact('role'));
-            }
 
-            else{
-                 return view('errors.403');
-            }
 
-        }*/
+            $client = Client::select('users.id','users.name','users.prenom',
+            'users.email','users.password','users.num_cni','clients.photo_c','clients.ville_c','clients.quartier_c')
+
+            ->join('users','users.id','=','clients.id_user')
+            ->get();
+            return view('client.index', compact('client'));
     }
-
 
 
     public function create()
     {
-        return view('client.create');
-        /*$user=Auth::user();
 
-        if($user)
-        {
+            $user = User::all();
+            return view('client.create', compact('user'));
 
 
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-            if(  $role['nom_role']==="admin"  )
-            {
-                return view('role.create');
-            }
-
-            else{
-                 return view('errors.403');
-            }
-        }*/
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name_client' => 'required',
-            'prenom_client' => 'required',
-            'num_cni_c' => 'required',
-            'telephone_c' => 'required',
-            'email_c' => 'required',
-
-            'password_client' => 'required|string|min:8|confirmed',
-            'password_confirmation'  =>  'required|same:password',
-            'photo_c' ,
-            'ville_c' => 'required',
-            'quartier_c' => 'required',
-
-    ]);
-    $requestData = $request->all();
-    $requestData['password_client'] = bcrypt( $requestData['password']);
-    Client::create($requestData);
-
-    return redirect('client')->with('message', 'client added!');
-        /*$user=Auth::user();
-
-        if($user)
-        {
 
 
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-            if(  $role['nom_role']==="admin"  )
-            {
+
                 $this->validate($request, [
-                    'nom_role' => 'required',
-                    'description_r' => 'required',
 
+                    'photo_c' => 'required',
+                    'ville_c' => 'required',
+                    'quartier_c' => 'required',
 
+                    'id_user' => 'required|exists:users,id',
                 ]);
                 $requestData = $request->all();
+                Client::create($requestData);
+
+                return redirect('client')->with('message', 'client added!');
 
 
-                Role::create($requestData);
 
-                return redirect('role')->with('message', 'role added!');
-            }
 
-            else{
-                 return view('errors.403');
-            }
-        }*/
+
     }
 
 
+     //fonction qui renvoit les details sur un utilsateur
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\user  $user
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-        $client = Client::where('id', '=', $id)->first();
+                $client = Client::findOrFail($id);
 
-                return view('client.show', compact('client'));
-        /*$user=Auth::user();
+                $user = User::findOrFail($client['id_user']) ;
+                return view('clinet.show', compact('user','personnel'));
 
-        if($user)
-        {
-
-
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-            if(  $role['nom_role']==="admin"  )
-            {
-                $role = Role::where('id', '=', $id)->first();
-
-                return view('role.show', compact('role'));
-            }
-
-            else{
-                 return view('errors.403');
-            }
-        }*/
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     *
-     * @return \Illuminate\View\View
+     * @param  \App\Models\user  $user
+     * @return \Illuminate\Http\Response
      */
+
+
+       //fonction qui renvoit le formulaire sur un utilsateur a modifier
     public function edit($id)
     {
-        $client = Client::findOrFail($id);
-        return view('client.edit', compact('client'));
-       /* $user=Auth::user();
 
-        if($user)
-        {
+                $user = User::all();
 
+                $client = client::findOrFail($id);
 
-            //$role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-           // if(  $role['nom_role']==="admin"  )
-            {
-                $role = Role::findOrFail($id);
-                return view('role.edit', compact('role'));
-            }
+                return view('client.edit', compact('user','client'));
 
-            else{
-                 return view('errors.403');
-            }
-        }*/
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\user  $user
+     * @return \Illuminate\Http\Response
      */
+
+
+       //fonction qui valide les informations modifiees sur un utilsateur
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name_client' => 'required',
-        'prenom_client' => 'required',
-        'num_cni_c' => 'required',
-        'telephone_c' => 'required',
-        'email_c' => 'required',
 
-        'password_client' => 'required|string|min:8|confirmed',
-        'password_confirmation'  =>  'required|same:password',
-        'photo_c' ,
-        'ville_c' => 'required',
-        'quartier_c' => 'required',
+            'photo_c' => 'required',
+            'ville_c' => 'required',
+            'quartier_c' => 'required',
 
+
+
+            'id_user' => 'required|exists:users,id',
         ]);
-        $requestData = $request->all();
 
-        $client = Client::findOrFail($id);
-        $client->update($requestData);
-
-        return redirect('client');
-
-        /*$user=Auth::user();
-
-        if($user)
-        {
-
-
-            $role = Role::Where('id','=',$user->id_role)->first() ;
-            //
-            if(  $role['nom_role']==="admin"  )
-            {
-                $this->validate($request, [
-                    'nom_role' => 'required',
-                    'description_r' => 'required',
-
-                ]);
                 $requestData = $request->all();
 
-                $role = Role::findOrFail($id);
-                $role->update($requestData);
+                $client = client::findOrFail($id);
+                $client->update($requestData);
 
-                return redirect('role')->with('info', 'role updated!');
-            }
-
-            else{
-                 return view('errors.403');
-            }
-        }*/
+                return redirect('client');
 
     }
+
+      //fonction qui supprime un utilsateur
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\user  $user
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
 
-        $delete =  Client::destroy($id);
-        return redirect('client')->with('message');
+                $delete= User::destroy($id);
+                return redirect('user')->with('message');
+
 
     }
 
-
 }
+
+
+
+
+
+

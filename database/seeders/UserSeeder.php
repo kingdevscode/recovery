@@ -21,11 +21,9 @@ class UserSeeder extends Seeder
         $user2->prenom = "dtc";
         $user2->num_cni="oop2er";
         $user2->telephone="673480093";
-        $user2->poste = "chef de service";
         $user2->email = "corine@gmail.com";
         $user2->password = bcrypt('0987654321');
-        $user2->id_role = "1";
-        $user2->id_agence = "1";
+      
         $user2->save();
 
 
@@ -34,11 +32,9 @@ class UserSeeder extends Seeder
         $user3->prenom = "test";
         $user3->num_cni="oop2er"; // ceci est attribuer au user2 après sa sauvegarde... erreur??
         $user3->telephone="673480093"; // ceci est attribuer au user2 après sa sauvegarde... erreur??
-        $user3->poste = "stagiaire";
         $user3->email = "test02@gmail.com";
         $user3->password = bcrypt('password');
-        $user3->id_role = "2";
-        $user3->id_agence = "1";
+
         $user3->save();
 
 
