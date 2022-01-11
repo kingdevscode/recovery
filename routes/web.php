@@ -16,9 +16,23 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('auth.login');
 });
+
+
+//accueil coté client
 Route::get('/accueil', function () {
     return view('accueil');
 });
+//détail d'un objet coté client
+Route::get('/detail', function () {
+    return view('detail');
+});
+//nous contacter coté client
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+
 /*Route::get('/', function () {
     return view('index');
 });
