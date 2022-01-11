@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,7 @@ Route::get('/', function () {
     return view('layouts/apps');
 });*/
 Route::group(['middleware' => ['auth']], function () {
-    Route::group(['prefix' => 'user'], function () {
+    Route::group(['prefix' => 'user', 'middleware' => ['role:admin']], function () {
 
         Route::post('/', 'App\Http\Controllers\UserController@store');
         Route::get('/create', 'App\Http\Controllers\UserController@create');
@@ -38,18 +39,18 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         Route::post('/', 'App\Http\Controllers\AgenceController@store');
-        Route::get('/create', 'App\Http\Controllers\AgenceController@create');
+        Route::get('/create', 'App\Http\Controllers\AgenceController@create')->middleware('permission:create-client');
         Route::get('/{id}/edit', 'App\Http\Controllers\AgenceController@edit');
         Route::delete('/delete/{id}', 'App\Http\Controllers\AgenceController@destroy');
         Route::get('/{id}', 'App\Http\Controllers\AgenceController@show');
         Route::patch('/{id}', 'App\Http\Controllers\AgenceController@update');
-        Route::get('/', 'App\Http\Controllers\AgenceController@index');
+        Route::get('/', 'App\Http\Controllers\AgenceController@index')->middleware('permission:create-suggestion');
     });
 
     Route::group(['prefix' => 'categorie'], function () {
 
         Route::post('/', 'App\Http\Controllers\CategorieController@store');
-        Route::get('/create', 'App\Http\Controllers\CategorieController@create');
+        Route::get('/create', 'App\Http\Controllers\CategorieController@create')->middleware('permission:update-client');
         Route::get('/{id}/edit', 'App\Http\Controllers\CategorieController@edit');
         Route::delete('/delete/{id}', 'App\Http\Controllers\CategorieController@destroy');
         Route::get('/{id}', 'App\Http\Controllers\CategorieController@show');
@@ -81,7 +82,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'objet'], function () {
 
         Route::post('/', 'App\Http\Controllers\ObjetController@store');
-        Route::get('/create', 'App\Http\Controllers\ObjetController@create');
+        Route::get('/create', 'App\Http\Controllers\ObjetController@create')->middleware('permission:index-objet');
         Route::get('/{id}/edit', 'App\Http\Controllers\ObjetController@edit');
         Route::delete('/delete/{id}', 'App\Http\Controllers\ObjetController@destroy');
         Route::get('/{id}', 'App\Http\Controllers\ObjetController@show');
