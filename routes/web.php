@@ -139,3 +139,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', [App\Http\Controllers\StatistiqueController::class, 'index'])->name('home');
 
+
+    Route::get('/ui', function(){
+        return view('ui.index');
+    });
